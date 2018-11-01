@@ -1,0 +1,3 @@
+/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/CMakeFiles/rebuild_cache.dir
+/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/CMakeFiles/edit_cache.dir
+/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/CMakeFiles/project2.dir
