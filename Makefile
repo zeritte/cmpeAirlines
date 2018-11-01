@@ -123,6 +123,33 @@ project2/fast:
 	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/build
 .PHONY : project2/fast
 
+AppManager.o: AppManager.cpp.o
+
+.PHONY : AppManager.o
+
+# target to build an object file
+AppManager.cpp.o:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/AppManager.cpp.o
+.PHONY : AppManager.cpp.o
+
+AppManager.i: AppManager.cpp.i
+
+.PHONY : AppManager.i
+
+# target to preprocess a source file
+AppManager.cpp.i:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/AppManager.cpp.i
+.PHONY : AppManager.cpp.i
+
+AppManager.s: AppManager.cpp.s
+
+.PHONY : AppManager.s
+
+# target to generate assembly for a file
+AppManager.cpp.s:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/AppManager.cpp.s
+.PHONY : AppManager.cpp.s
+
 InputParser.o: InputParser.cpp.o
 
 .PHONY : InputParser.o
@@ -213,6 +240,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... project2"
+	@echo "... AppManager.o"
+	@echo "... AppManager.i"
+	@echo "... AppManager.s"
 	@echo "... InputParser.o"
 	@echo "... InputParser.i"
 	@echo "... InputParser.s"

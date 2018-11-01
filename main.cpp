@@ -1,7 +1,6 @@
 #include <iostream>
 #include "InputParser.h"
-#include "Passenger.h"
-using namespace std;
+#include "AppManager.h"
 
 int main(int argc, char* argv[]) {
     if (argc != 3) {
@@ -9,13 +8,8 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     InputParser input(argv[1]);
-    list<Passenger> liste = input.getListOfPassenger();
-    for(int i=0; i<input.getNumOfPassenger(); i++){
-        cout << liste.front().getSecurityTime()<<endl;
-        liste.pop_front();
-    }
-    input.getListOfPassenger();
-    input.getListOfPassenger();
+    AppManager app(input);
+    app.print();
 
     return 0;
 }

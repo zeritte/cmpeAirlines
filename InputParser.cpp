@@ -13,7 +13,7 @@ InputParser::InputParser(char *argv) {
     numOfSecutiry = stoi(data[2]);
 
     for(int i=0; i<numOfPassenger; i++){
-        data.clear(); // cleaning up old datas
+        data.clear(); // cleaning up old data
         getline(infile, line);
         splitter(line,data);
         int aT = stoi(data[0]);
@@ -25,6 +25,20 @@ InputParser::InputParser(char *argv) {
         Passenger myPas(aT, fT, lT, sT, uT, tT);
         passengerList.push_back(myPas);
     }
+}
+
+InputParser::InputParser() {
+    numOfPassenger=0;
+    numOfLuggage=0;
+    numOfPassenger=0;
+    passengerList.clear();
+}
+
+InputParser::InputParser(const InputParser &in) {
+    numOfPassenger=in.numOfPassenger;
+    numOfLuggage=in.numOfLuggage;
+    numOfPassenger=in.numOfPassenger;
+    passengerList=in.passengerList;
 }
 
 InputParser::~InputParser() {}
@@ -48,11 +62,5 @@ int InputParser::getNumOfSecurity() {
 }
 
 list<Passenger> InputParser::getListOfPassenger(){
-    list<Passenger> p = passengerList;
-    for(int i=0; i<getNumOfPassenger(); i++){
-        cout<<p.front().getUserType()<<endl;
-        p.pop_front();
-    }
-
     return passengerList;
 }

@@ -8,11 +8,12 @@
 #include <sstream>
 #include <list>
 #include <vector>
-using namespace std;
 
 class InputParser {
 public:
     InputParser(char *argv);
+    InputParser();
+    InputParser(const InputParser &in);
     ~InputParser();
     template <class Container> void splitter(const string& str, Container& cont);
     int getNumOfPassenger();
