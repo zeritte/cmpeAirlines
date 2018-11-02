@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/AppManager.cpp
-AppManager.h
-/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/AppManager.h
-
 /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/AppManager.h
 queue
 -
@@ -41,4 +37,12 @@ vector
 -
 
 /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Passenger.h
+
+/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/main.cpp
+iostream
+-
+InputParser.h
+/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/InputParser.h
+AppManager.h
+/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/AppManager.h
 
