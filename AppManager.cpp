@@ -6,7 +6,6 @@ AppManager::AppManager(InputParser givenData) {
 }
 
 void AppManager::run(bool firstToFly, bool vip, bool online) {
-    // list<Passenger> pasList = pasList;
     vector<Counter> luggageCounter;
     vector<Counter> securityCounter;
     float sumOfTime = 0;
@@ -15,6 +14,7 @@ void AppManager::run(bool firstToFly, bool vip, bool online) {
     if(!firstToFly && !vip && !online) {
         queue<Passenger> luggageQueue;
         queue<Passenger> securityQueue;
+        list<Passenger> temp = pasList; // to keep original list safely
 
         for (int i = 0; i < data.getNumOfLuggage(); i++) { // creating luggage counters
             luggageCounter.emplace_back(Counter());
@@ -24,8 +24,8 @@ void AppManager::run(bool firstToFly, bool vip, bool online) {
         }
 
         for (int i = 0; i < data.getNumOfPassenger(); i++) { // putting passengers into luggage queue
-            luggageQueue.push(pasList.front());
-            pasList.pop_front();
+            luggageQueue.push(temp.front());
+            temp.pop_front();
         }
 
         while (!luggageQueue.empty()) { // where the luggage counter operation is executed
@@ -64,7 +64,7 @@ void AppManager::run(bool firstToFly, bool vip, bool online) {
                 if (securityCounter[i].getAvailable() <= pas.getTimeSpend()) {
                     securityCounter[i].setAvailable(pas.getTimeSpend() + pas.getSecurityTime());
                     pas.setTimeSpend(pas.getSecurityTime());
-                    pasList.push_front(pas); // puts back to pasList
+                    temp.push_front(pas); // puts back to temp
                     isdone = true;
                     break;
                 }
@@ -79,18 +79,18 @@ void AppManager::run(bool firstToFly, bool vip, bool online) {
                 }
                 securityCounter[theOne].setAvailable(securityCounter[theOne].getAvailable() + pas.getSecurityTime());
                 pas.setTimeSpend(securityCounter[theOne].getAvailable() - pas.getTimeSpend());
-                pasList.push_front(pas); // puts back to pasList
+                temp.push_front(pas); // puts back to temp
             }
             sumOfTime += (pas.getTimeSpend() - pas.getArrivalTime());
             securityQueue.pop();
         }
 
         for (int i = 0; i < data.getNumOfPassenger(); i++) { // searchs for missed flights
-            Passenger pas = pasList.front();
+            Passenger pas = temp.front();
             if (pas.getTimeSpend() > pas.getFlightTime()) {
                 numOfMissed++;
             }
-            pasList.pop_front();
+            temp.pop_front();
         }
 
         cout << sumOfTime / data.getNumOfPassenger() << " " << numOfMissed << endl;
