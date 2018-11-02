@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/AppManager.cpp" "/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/CMakeFiles/project2.dir/AppManager.cpp.o"
+  "/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Counter.cpp" "/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/CMakeFiles/project2.dir/Counter.cpp.o"
   "/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/InputParser.cpp" "/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/CMakeFiles/project2.dir/InputParser.cpp.o"
   "/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Passenger.cpp" "/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/CMakeFiles/project2.dir/Passenger.cpp.o"
   "/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/main.cpp" "/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/CMakeFiles/project2.dir/main.cpp.o"

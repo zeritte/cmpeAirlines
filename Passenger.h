@@ -13,6 +13,9 @@ public:
     int getSecurityTime();
     char getUserType();
     char getTicketType();
+    int getTimeSpend();
+    void setTimeSpend(int time);
+
 private:
     int arrivalTime;
     int flightTime;
@@ -20,6 +23,7 @@ private:
     int securityTime;
     char userType;
     char ticketType;
+    int timeSpend;
 };
 
 

@@ -6,9 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/InputParser.cpp
+/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/AppManager.cpp
+AppManager.h
+/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/AppManager.h
+
+/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/AppManager.h
+queue
+-
 InputParser.h
 /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/InputParser.h
+Counter.h
+/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Counter.h
+
+/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Counter.h
+Passenger.h
+/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Passenger.h
+string
+-
 
 /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/InputParser.h
 Passenger.h

@@ -3,17 +3,17 @@
 
 #include <queue>
 #include "InputParser.h"
+#include "Counter.h"
 
 class AppManager {
 public:
     AppManager(InputParser givenData);
     ~AppManager();
-    void print();
+    void run(bool firstToFly, bool vip, bool online);
 
 private:
-    priority_queue<Passenger> luggageQueue;
-    priority_queue<Passenger> securityQueue;
     InputParser data;
+    list<Passenger> pasList;
 };
 
 

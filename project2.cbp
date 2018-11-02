@@ -72,6 +72,12 @@
 		<Unit filename="/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/AppManager.h">
 			<Option target="project2"/>
 		</Unit>
+		<Unit filename="/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Counter.cpp">
+			<Option target="project2"/>
+		</Unit>
+		<Unit filename="/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Counter.h">
+			<Option target="project2"/>
+		</Unit>
 		<Unit filename="/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/InputParser.cpp">
 			<Option target="project2"/>
 		</Unit>

@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/project2.dir/InputParser.cpp.o"
   "CMakeFiles/project2.dir/Passenger.cpp.o"
   "CMakeFiles/project2.dir/AppManager.cpp.o"
+  "CMakeFiles/project2.dir/Counter.cpp.o"
   "project2.pdb"
   "project2"
 )

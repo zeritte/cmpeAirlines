@@ -4,7 +4,12 @@
 CMakeFiles/project2.dir/AppManager.cpp.o
  /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/AppManager.cpp
  /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/AppManager.h
+ /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Counter.h
  /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/InputParser.h
+ /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Passenger.h
+CMakeFiles/project2.dir/Counter.cpp.o
+ /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Counter.cpp
+ /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Counter.h
  /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Passenger.h
 CMakeFiles/project2.dir/InputParser.cpp.o
  /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/InputParser.cpp
@@ -15,6 +20,7 @@ CMakeFiles/project2.dir/Passenger.cpp.o
  /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Passenger.h
 CMakeFiles/project2.dir/main.cpp.o
  /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/AppManager.h
+ /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Counter.h
  /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/InputParser.h
  /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/Passenger.h
  /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/main.cpp

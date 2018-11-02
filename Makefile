@@ -150,6 +150,33 @@ AppManager.cpp.s:
 	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/AppManager.cpp.s
 .PHONY : AppManager.cpp.s
 
+Counter.o: Counter.cpp.o
+
+.PHONY : Counter.o
+
+# target to build an object file
+Counter.cpp.o:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/Counter.cpp.o
+.PHONY : Counter.cpp.o
+
+Counter.i: Counter.cpp.i
+
+.PHONY : Counter.i
+
+# target to preprocess a source file
+Counter.cpp.i:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/Counter.cpp.i
+.PHONY : Counter.cpp.i
+
+Counter.s: Counter.cpp.s
+
+.PHONY : Counter.s
+
+# target to generate assembly for a file
+Counter.cpp.s:
+	$(MAKE) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/Counter.cpp.s
+.PHONY : Counter.cpp.s
+
 InputParser.o: InputParser.cpp.o
 
 .PHONY : InputParser.o
@@ -243,6 +270,9 @@ help:
 	@echo "... AppManager.o"
 	@echo "... AppManager.i"
 	@echo "... AppManager.s"
+	@echo "... Counter.o"
+	@echo "... Counter.i"
+	@echo "... Counter.s"
 	@echo "... InputParser.o"
 	@echo "... InputParser.i"
 	@echo "... InputParser.s"

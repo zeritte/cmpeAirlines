@@ -30,14 +30,14 @@ InputParser::InputParser(char *argv) {
 InputParser::InputParser() {
     numOfPassenger=0;
     numOfLuggage=0;
-    numOfPassenger=0;
+    numOfSecutiry=0;
     passengerList.clear();
 }
 
 InputParser::InputParser(const InputParser &in) {
     numOfPassenger=in.numOfPassenger;
     numOfLuggage=in.numOfLuggage;
-    numOfPassenger=in.numOfPassenger;
+    numOfSecutiry=in.numOfSecutiry;
     passengerList=in.passengerList;
 }
 
