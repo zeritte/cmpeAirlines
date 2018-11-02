@@ -24,7 +24,8 @@ void AppManager::run(bool firstToFly, bool vip, bool online) {
         temp.pop_front();
     }
 
-    float sum=0;
+    float sumOfTime=0;
+    int numOfMissed=0;
 
     while(luggageQueue.size()!=0){ // where the queue operation are executed
         Passenger pas = luggageQueue.front();
@@ -75,11 +76,20 @@ void AppManager::run(bool firstToFly, bool vip, bool online) {
             securityCounter[theOne].setAvailable(securityCounter[theOne].getAvailable()+pas.getSecurityTime());
             pas.setTimeSpend(securityCounter[theOne].getAvailable()-pas.getTimeSpend());
         }
-        sum+=(pas.getTimeSpend()-pas.getArrivalTime());
+        sumOfTime+=(pas.getTimeSpend()-pas.getArrivalTime());
         securityQueue.pop();
     }
 
-    cout << sum/data.getNumOfPassenger();
+   for(int i=0; i<data.getNumOfPassenger(); i++){
+       Passenger pas = pasList.front();
+       cout << pas.getTimeSpend()<<" "<<pas.getFlightTime()<<endl;
+       if(pas.getTimeSpend()>pas.getFlightTime()){
+           numOfMissed++;
+       }
+       pasList.pop_front();
+   }
+
+    cout << sumOfTime/data.getNumOfPassenger()<<" "<<numOfMissed;
 }
 
 AppManager::~AppManager() {}

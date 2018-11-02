@@ -13,8 +13,6 @@ public:
 
 private:
     int whenAvailable;
-
-
 };
 
 
