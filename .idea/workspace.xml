@@ -12,10 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6eccdbfe-e16d-4668-98fb-c3150bff4f6c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/AppManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeFiles/project2.dir/AppManager.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeFiles/project2.dir/AppManager.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Counter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Counter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project2" beforeDir="false" afterPath="$PROJECT_DIR$/project2" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -69,13 +66,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="6256" />
+          <entry key="cpp" value="6285" />
           <entry key="h" value="1715" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="7971" />
+          <entry key="ObjectiveC" value="8000" />
         </counts>
       </usages-collector>
     </session>
@@ -109,8 +106,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AppManager.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="573">
-              <caret line="62" column="56" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
+            <state relative-caret-position="322">
+              <caret line="92" column="65" lean-forward="true" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -278,7 +275,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22200000" />
+    <option name="totallyTimeSpent" value="22388000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -412,8 +409,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AppManager.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="62" column="56" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="56" />
+        <state relative-caret-position="322">
+          <caret line="92" column="65" lean-forward="true" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="65" />
         </state>
       </provider>
     </entry>

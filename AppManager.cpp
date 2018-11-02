@@ -61,6 +61,7 @@ void AppManager::run(bool firstToFly, bool vip, bool online) {
             if(securityCounter[i].getAvailable()<=pas.getTimeSpend()){
                 securityCounter[i].setAvailable(pas.getTimeSpend()+pas.getSecurityTime());
                 pas.setTimeSpend(pas.getSecurityTime());
+                temp.push_front(pas);
                 isdone=true;
                 break;
             }
@@ -75,18 +76,18 @@ void AppManager::run(bool firstToFly, bool vip, bool online) {
             }
             securityCounter[theOne].setAvailable(securityCounter[theOne].getAvailable()+pas.getSecurityTime());
             pas.setTimeSpend(securityCounter[theOne].getAvailable()-pas.getTimeSpend());
+            temp.push_front(pas);
         }
         sumOfTime+=(pas.getTimeSpend()-pas.getArrivalTime());
         securityQueue.pop();
     }
 
    for(int i=0; i<data.getNumOfPassenger(); i++){
-       Passenger pas = pasList.front();
-       cout << pas.getTimeSpend()<<" "<<pas.getFlightTime()<<endl;
+       Passenger pas = temp.front();
        if(pas.getTimeSpend()>pas.getFlightTime()){
            numOfMissed++;
        }
-       pasList.pop_front();
+       temp.pop_front();
    }
 
     cout << sumOfTime/data.getNumOfPassenger()<<" "<<numOfMissed;
