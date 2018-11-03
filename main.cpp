@@ -14,6 +14,7 @@ int main(int argc, char* argv[]) {
     InputParser input(argv[1]);
     AppManager app(input, argv[2]);
     app.run(false,false,false);
+    app.run(true, false, false);
 
 
 
