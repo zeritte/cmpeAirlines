@@ -1,15 +1,24 @@
 #include "Counter.h"
 
 Counter::Counter() {
-    whenAvailable=0;
+    busyStart=0;
+    busyEnd=0;
 }
 
-int Counter::getAvailable() {
-    return whenAvailable;
+int Counter::getBusyStart() {
+    return busyStart;
 }
 
-void Counter::setAvailable(int num) {
-    whenAvailable=num;
+void Counter::setBusyStart(int num) {
+    busyStart=num;
+}
+
+int Counter::getBusyEnd() {
+    return busyEnd;
+}
+
+void Counter::setBusyEnd(int num) {
+    busyEnd=num;
 }
 
 Counter::~Counter() {}

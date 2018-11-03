@@ -55,13 +55,14 @@ void AppManager::case1(vector<Counter> luggageCounter, vector<Counter> securityC
         luggageQueue.push(temp.front());
         temp.pop_front();
     }
-
     while (!luggageQueue.empty()) { // where the luggage counter operation is executed
         Passenger pas = luggageQueue.front(); // takes a passenger
         bool isdone = false;
+
         for (int i = 0; i < data.getNumOfLuggage(); i++) { // tries to put him into an available counter
-            if (luggageCounter[i].getAvailable() <= pas.getArrivalTime()) { // if there is available counter
-                luggageCounter[i].setAvailable(pas.getArrivalTime() + pas.getLuggageTime());
+            if (luggageCounter[i].getBusyEnd() <= pas.getArrivalTime()) { // if there is available counter
+                luggageCounter[i].setBusyStart(pas.getArrivalTime());
+                luggageCounter[i].setBusyEnd(pas.getArrivalTime() + pas.getLuggageTime());
                 pas.setTimeSpend(pas.getLuggageTime());
                 isdone = true;
                 securityQueue.push(pas); // after puts him into security queue
@@ -69,17 +70,18 @@ void AppManager::case1(vector<Counter> luggageCounter, vector<Counter> securityC
             }
         }
         if (!isdone) { // if there is not available counter
-            int minAvailable = luggageCounter[0].getAvailable();
+            int minAvailable = luggageCounter[0].getBusyEnd();
             int theOne;
             for (int i = 0; i < data.getNumOfLuggage(); i++) { // find nearest available counter
-                if (luggageCounter[i].getAvailable() <= minAvailable) {
+                if (luggageCounter[i].getBusyEnd() <= minAvailable) {
                     theOne = i;
                 }
             }
             // let the time pass
-            luggageCounter[theOne].setAvailable(luggageCounter[theOne].getAvailable() + pas.getLuggageTime());
+            luggageCounter[theOne].setBusyStart(luggageCounter[theOne].getBusyEnd());
+            luggageCounter[theOne].setBusyEnd(luggageCounter[theOne].getBusyStart()+pas.getLuggageTime());
             // puts passenger into counter
-            pas.setTimeSpend(luggageCounter[theOne].getAvailable() - pas.getArrivalTime());
+            pas.setTimeSpend(luggageCounter[theOne].getBusyEnd() - pas.getArrivalTime());
             securityQueue.push(pas); // after puts passenger into security queue
         }
         luggageQueue.pop(); // passes to next passenger
@@ -89,24 +91,26 @@ void AppManager::case1(vector<Counter> luggageCounter, vector<Counter> securityC
         Passenger pas = securityQueue.front();
         bool isdone = false;
         for (int i = 0; i < data.getNumOfSecurity(); i++) {
-            if (securityCounter[i].getAvailable() <= pas.getTimeSpend()) {
-                securityCounter[i].setAvailable(pas.getTimeSpend() + pas.getSecurityTime());
+            if (securityCounter[i].getBusyEnd() <= pas.getTimeSpend()) { // if there is available counter
+                securityCounter[i].setBusyStart(pas.getTimeSpend());
+                securityCounter[i].setBusyEnd(pas.getTimeSpend() + pas.getSecurityTime());
                 pas.setTimeSpend(pas.getSecurityTime());
-                temp.push_front(pas); // puts back to temp
                 isdone = true;
+                temp.push_front(pas); // puts back to temp
                 break;
             }
         }
-        if (!isdone) {
-            int minAvailable = securityCounter[0].getAvailable();
+        if (!isdone) { // if there is not available counter
+            int minAvailable = securityCounter[0].getBusyEnd();
             int theOne;
             for (int i = 0; i < data.getNumOfSecurity(); i++) {
-                if (securityCounter[i].getAvailable() <= minAvailable) {
+                if (securityCounter[i].getBusyEnd() <= minAvailable) {
                     theOne = i;
                 }
             }
-            securityCounter[theOne].setAvailable(securityCounter[theOne].getAvailable() + pas.getSecurityTime());
-            pas.setTimeSpend(securityCounter[theOne].getAvailable() - pas.getTimeSpend());
+            securityCounter[theOne].setBusyStart(securityCounter[theOne].getBusyEnd());
+            securityCounter[theOne].setBusyEnd(securityCounter[theOne].getBusyStart()+pas.getSecurityTime());
+            pas.setTimeSpend(securityCounter[theOne].getBusyEnd() - pas.getTimeSpend());
             temp.push_front(pas); // puts back to temp
         }
         sumOfTime += (pas.getTimeSpend() - pas.getArrivalTime());
@@ -132,7 +136,7 @@ void AppManager::case2(vector<Counter> luggageCounter, vector<Counter> securityC
             return lhs.getFlightTime() > rhs.getFlightTime();
         }
     };
-
+    /*
     priority_queue<Passenger, vector<Passenger>, firstToFly> luggageQueue;
     priority_queue<Passenger, vector<Passenger>, firstToFly> securityQueue;
     list<Passenger> temp = pasList; // to keep original list safely
@@ -221,7 +225,7 @@ void AppManager::case2(vector<Counter> luggageCounter, vector<Counter> securityC
     }
     cout << "case 2: "<<sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
     // output operations
-    myfile << sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    myfile << sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl; */
 }
 
 
