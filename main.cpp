@@ -4,7 +4,7 @@
 
 int main(int argc, char* argv[]) {
 
-    // auto start = std::chrono::high_resolution_clock::now();
+    //auto start = std::chrono::high_resolution_clock::now();
 
 
     if (argc != 3) {
@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
     InputParser input(argv[1]);
-    AppManager app(input);
+    AppManager app(input, argv[2]);
     app.run(false,false,false);
 
 
