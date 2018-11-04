@@ -2,6 +2,7 @@
 #define PROJECT2_APPMANAGER_H
 
 #include <queue>
+#include <algorithm>g
 #include "InputParser.h"
 #include "Counter.h"
 
