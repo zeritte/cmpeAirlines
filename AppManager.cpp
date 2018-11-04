@@ -196,7 +196,7 @@ void AppManager::case2(vector<Counter> luggageCounter, vector<Counter> securityC
         }
     }
 
-    sort(securityQueue.begin(), securityQueue.end(), timeSpendSorted);
+    sort(securityQueue.begin(), securityQueue.begin()+data.getNumOfSecurity(), timeSpendSorted);
 
     while (!securityQueue.empty()) { // security counter operations, same with luggage counter
         Passenger pas = securityQueue.front();
@@ -250,7 +250,7 @@ void AppManager::case2(vector<Counter> luggageCounter, vector<Counter> securityC
         }
     }
 
-    for (int i = 0; i <finalList.size(); i++) { // searches for missed flights
+    while(!finalList.empty()){ // searches for missed flights
         Passenger pas = finalList.front();
         if (pas.getTimeSpend() > pas.getFlightTime()) {
             numOfMissed++;
