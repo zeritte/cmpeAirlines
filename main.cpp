@@ -15,8 +15,12 @@ int main(int argc, char* argv[]) {
     AppManager app(input, argv[2]);
     app.run(false,false,false);
     app.run(true, false, false);
-
-
+    app.run(false, true, false);
+    app.run(true, true, false);
+    app.run(false, false, true);
+    app.run(true, false, true);
+    app.run(false, true, true);
+    app.run(true, true, true);
 
 
     /*
