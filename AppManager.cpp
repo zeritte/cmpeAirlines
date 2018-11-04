@@ -6,10 +6,6 @@ AppManager::AppManager(InputParser givenData, char *argv) {
     myfile.open(argv);
 }
 
-bool timeSpendSorted(Passenger& lhs, Passenger& rhs) {
-    return lhs.getTimeSpend() < rhs.getTimeSpend();
-}
-
 void AppManager::run(bool firstToFly, bool vip, bool online) {
     vector<Counter> luggageCounter;
     vector<Counter> securityCounter;
@@ -96,7 +92,7 @@ void AppManager::case1(vector<Counter> luggageCounter, vector<Counter> securityC
         sorted.erase(sorted.begin()); // passes to next passenger
     }
 
-    sort(securityQueue.begin(), securityQueue.end(), timeSpendSorted);
+    sort(securityQueue.begin(), securityQueue.end());
 
     while (!securityQueue.empty()) { // security counter operations, same with luggage counter
         Passenger pas = securityQueue.front();
@@ -193,7 +189,7 @@ void AppManager::case2(vector<Counter> luggageCounter, vector<Counter> securityC
         }
     }
 
-    sort(securityQueue.begin(), securityQueue.begin()+data.getNumOfSecurity(), timeSpendSorted);
+    sort(securityQueue.begin(), securityQueue.begin()+data.getNumOfSecurity());
 
     while (!securityQueue.empty()) { // security counter operations, same with luggage counter
         Passenger pas = securityQueue.front();
@@ -303,7 +299,7 @@ void AppManager::case3(vector<Counter> luggageCounter, vector<Counter> securityC
         sorted.erase(sorted.begin()); // passes to next passenger
     }
 
-    sort(securityQueue.begin(), securityQueue.end(), timeSpendSorted);
+    sort(securityQueue.begin(), securityQueue.end());
 
     while (!securityQueue.empty()) { // security counter operations, same with luggage counter
         Passenger pas = securityQueue.front();
@@ -411,7 +407,7 @@ void AppManager::case4(vector<Counter> luggageCounter, vector<Counter> securityC
         }
     }
 
-    sort(securityQueue.begin(), securityQueue.begin()+data.getNumOfSecurity(), timeSpendSorted);
+    sort(securityQueue.begin(), securityQueue.begin()+data.getNumOfSecurity());
 
     while (!securityQueue.empty()) { // security counter operations, same with luggage counter
         Passenger pas = securityQueue.front();
@@ -514,7 +510,7 @@ void AppManager::case5(vector<Counter> luggageCounter, vector<Counter> securityC
         sorted.erase(sorted.begin()); // passes to next passenger
     }
 
-    sort(securityQueue.begin(), securityQueue.end(), timeSpendSorted);
+    sort(securityQueue.begin(), securityQueue.end());
 
     while (!securityQueue.empty()) { // security counter operations, same with luggage counter
         Passenger pas = securityQueue.front();
@@ -616,7 +612,7 @@ void AppManager::case6(vector<Counter> luggageCounter, vector<Counter> securityC
         }
     }
 
-    sort(securityQueue.begin(), securityQueue.end(), timeSpendSorted);
+    sort(securityQueue.begin(), securityQueue.end());
 
     while (!securityQueue.empty()) { // security counter operations, same with luggage counter
         Passenger pas = securityQueue.front();
@@ -735,7 +731,7 @@ void AppManager::case7(vector<Counter> luggageCounter, vector<Counter> securityC
         sorted.erase(sorted.begin()); // passes to next passenger
     }
 
-    sort(securityQueue.begin(), securityQueue.end(), timeSpendSorted);
+    sort(securityQueue.begin(), securityQueue.end());
 
     while (!securityQueue.empty()) { // security counter operations, same with luggage counter
         Passenger pas = securityQueue.front();
@@ -850,7 +846,7 @@ void AppManager::case8(vector<Counter> luggageCounter, vector<Counter> securityC
         }
     }
 
-    sort(securityQueue.begin(), securityQueue.end(), timeSpendSorted);
+    sort(securityQueue.begin(), securityQueue.end());
 
     while (!securityQueue.empty()) { // security counter operations, same with luggage counter
         Passenger pas = securityQueue.front();

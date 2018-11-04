@@ -11,10 +11,12 @@ Passenger::Passenger(int aT, int fT, int lT, int sT, char uT, char tT) {
 }
 
 bool Passenger::operator==(const Passenger &rhs) {
-    if(arrivalTime==rhs.arrivalTime){
-        return true;
-    }
-    return false;
+    return(arrivalTime==rhs.arrivalTime);
+}
+
+bool Passenger::operator<(const Passenger& rhs) const
+{
+    return (timeSpend < rhs.timeSpend);
 }
 
 int Passenger::getTimeSpend(){

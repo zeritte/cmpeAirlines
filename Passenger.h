@@ -16,6 +16,7 @@ public:
     int getTimeSpend();
     void setTimeSpend(int time);
     bool operator==(const Passenger& rhs);
+    bool operator<(const Passenger& rhs) const;
 
 private:
     int arrivalTime;
