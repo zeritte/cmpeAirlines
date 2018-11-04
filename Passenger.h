@@ -15,6 +15,7 @@ public:
     char getTicketType();
     int getTimeSpend();
     void setTimeSpend(int time);
+    bool operator==(const Passenger& rhs);
 
 private:
     int arrivalTime;

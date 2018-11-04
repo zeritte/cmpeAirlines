@@ -10,6 +10,13 @@ Passenger::Passenger(int aT, int fT, int lT, int sT, char uT, char tT) {
     timeSpend=arrivalTime;
 }
 
+bool Passenger::operator==(const Passenger &rhs) {
+    if(arrivalTime==rhs.arrivalTime){
+        return true;
+    }
+    return false;
+}
+
 int Passenger::getTimeSpend(){
     return timeSpend;
 }
