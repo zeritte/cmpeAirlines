@@ -11,7 +11,7 @@ Passenger::Passenger(int aT, int fT, int lT, int sT, char uT, char tT) {
 }
 
 bool Passenger::operator==(const Passenger &rhs) {
-    return(arrivalTime==rhs.arrivalTime);
+    return(arrivalTime==rhs.arrivalTime && flightTime==rhs.flightTime && luggageTime==rhs.luggageTime && securityTime==rhs.securityTime && userType==rhs.userType && ticketType==rhs.ticketType);
 }
 
 bool Passenger::operator<(const Passenger& rhs) const
