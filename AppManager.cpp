@@ -12,16 +12,14 @@ void AppManager::run(bool firstToFly, bool vip, bool online) {
     vector<Passenger> sortedList;
 
     list<Passenger> temp = pasList; // to keep original list safely
-    priority_queue<Passenger, vector<Passenger>, firstComeFirstServe> arrivalTimeSorter;
 
-    for (int i = 0; i < data.getNumOfPassenger(); i++) { // sorting passengers in the order of their arrival
-        arrivalTimeSorter.push(temp.front());
+    for (int i = 0; i < data.getNumOfPassenger(); i++) { // pushing passengers into sortedList
+        sortedList.push_back(temp.front());
         temp.pop_front();
     }
-    while(!arrivalTimeSorter.empty()){ // creating
-        sortedList.push_back(arrivalTimeSorter.top());
-        arrivalTimeSorter.pop();
-    }
+
+    sort(sortedList.begin(), sortedList.end()); // sorting passengers according to their arrival time
+
     for (int i = 0; i < data.getNumOfLuggage(); i++) { // creating luggage counters
         luggageCounter.emplace_back(Counter());
     }

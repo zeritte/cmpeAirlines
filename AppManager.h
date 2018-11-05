@@ -6,12 +6,6 @@
 #include "InputParser.h"
 #include "Counter.h"
 
-struct firstComeFirstServe{
-    bool operator() (Passenger& lhs, Passenger& rhs)
-    {
-        return lhs.getArrivalTime() > rhs.getArrivalTime();
-    }
-};
 struct firstToFly{
     bool operator() (Passenger& lhs, Passenger& rhs)
     {

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2
+# Install script for directory: /Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpeAirlines
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpe250project2/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/zeritte/Documents/Lectures/cmpe/workspace/clion/cmpeAirlines/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
