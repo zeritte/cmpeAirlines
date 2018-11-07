@@ -78,6 +78,7 @@ void AppManager::case1(vector<Counter> luggageCounter, vector<Counter> securityC
             for (int i = 0; i < data.getNumOfLuggage(); i++) { // find nearest available counter
                 if (luggageCounter[i].getBusyEnd() <= minAvailable) {
                     theOne = i;
+                    minAvailable=luggageCounter[i].getBusyEnd();
                 }
             }
             // let the time pass
@@ -111,6 +112,7 @@ void AppManager::case1(vector<Counter> luggageCounter, vector<Counter> securityC
             for (int i = 0; i < data.getNumOfSecurity(); i++) {
                 if (securityCounter[i].getBusyEnd() <= minAvailable) {
                     theOne = i;
+                    minAvailable=securityCounter[i].getBusyEnd();
                 }
             }
             securityCounter[theOne].setBusyStart(securityCounter[theOne].getBusyEnd());
@@ -279,6 +281,7 @@ void AppManager::case3(vector<Counter> luggageCounter, vector<Counter> securityC
             for (int i = 0; i < data.getNumOfLuggage(); i++) { // find nearest available counter
                 if (luggageCounter[i].getBusyEnd() <= minAvailable) {
                     theOne = i;
+                    minAvailable=luggageCounter[i].getBusyEnd();
                 }
             }
             // let the time pass
@@ -318,6 +321,7 @@ void AppManager::case3(vector<Counter> luggageCounter, vector<Counter> securityC
             for (int i = 0; i < data.getNumOfSecurity(); i++) {
                 if (securityCounter[i].getBusyEnd() <= minAvailable) {
                     theOne = i;
+                    minAvailable=securityCounter[i].getBusyEnd();
                 }
             }
             securityCounter[theOne].setBusyStart(securityCounter[theOne].getBusyEnd());
@@ -373,6 +377,7 @@ void AppManager::case4(vector<Counter> luggageCounter, vector<Counter> securityC
             for (int i = 0; i < data.getNumOfLuggage(); i++) { // find nearest available counter
                 if (luggageCounter[i].getBusyEnd() <= minAvailable) {
                     theOne = i;
+                    minAvailable=luggageCounter[i].getBusyEnd();
                 }
             }
 
@@ -427,6 +432,7 @@ void AppManager::case4(vector<Counter> luggageCounter, vector<Counter> securityC
             for (int i = 0; i < data.getNumOfSecurity(); i++) { // find nearest available counter
                 if (securityCounter[i].getBusyEnd() <= minAvailable) {
                     theOne = i;
+                    minAvailable=securityCounter[i].getBusyEnd();
                 }
             }
 
@@ -493,6 +499,7 @@ void AppManager::case5(vector<Counter> luggageCounter, vector<Counter> securityC
                 for (int i = 0; i < data.getNumOfLuggage(); i++) { // find nearest available counter
                     if (luggageCounter[i].getBusyEnd() <= minAvailable) {
                         theOne = i;
+                        minAvailable=luggageCounter[i].getBusyEnd();
                     }
                 }
                 // let the time pass
@@ -529,6 +536,7 @@ void AppManager::case5(vector<Counter> luggageCounter, vector<Counter> securityC
             for (int i = 0; i < data.getNumOfSecurity(); i++) {
                 if (securityCounter[i].getBusyEnd() <= minAvailable) {
                     theOne = i;
+                    minAvailable=securityCounter[i].getBusyEnd();
                 }
             }
             securityCounter[theOne].setBusyStart(securityCounter[theOne].getBusyEnd());
@@ -579,6 +587,7 @@ void AppManager::case6(vector<Counter> luggageCounter, vector<Counter> securityC
                 for (int i = 0; i < data.getNumOfLuggage(); i++) { // find nearest available counter
                     if (luggageCounter[i].getBusyEnd() <= minAvailable) {
                         theOne = i;
+                        minAvailable=luggageCounter[i].getBusyEnd();
                     }
                 }
 
@@ -632,6 +641,7 @@ void AppManager::case6(vector<Counter> luggageCounter, vector<Counter> securityC
             for (int i = 0; i < data.getNumOfSecurity(); i++) { // find nearest available counter
                 if (securityCounter[i].getBusyEnd() <= minAvailable) {
                     theOne = i;
+                    minAvailable=securityCounter[i].getBusyEnd();
                 }
             }
 
@@ -704,6 +714,7 @@ void AppManager::case7(vector<Counter> luggageCounter, vector<Counter> securityC
                 for (int i = 0; i < data.getNumOfLuggage(); i++) { // find nearest available counter
                     if (luggageCounter[i].getBusyEnd() <= minAvailable) {
                         theOne = i;
+                        minAvailable=luggageCounter[i].getBusyEnd();
                     }
                 }
                 // let the time pass
@@ -750,6 +761,7 @@ void AppManager::case7(vector<Counter> luggageCounter, vector<Counter> securityC
             for (int i = 0; i < data.getNumOfSecurity(); i++) {
                 if (securityCounter[i].getBusyEnd() <= minAvailable) {
                     theOne = i;
+                    minAvailable=securityCounter[i].getBusyEnd();
                 }
             }
             securityCounter[theOne].setBusyStart(securityCounter[theOne].getBusyEnd());
@@ -804,6 +816,7 @@ void AppManager::case8(vector<Counter> luggageCounter, vector<Counter> securityC
                 for (int i = 0; i < data.getNumOfLuggage(); i++) { // find nearest available counter
                     if (luggageCounter[i].getBusyEnd() <= minAvailable) {
                         theOne = i;
+                        minAvailable=luggageCounter[i].getBusyEnd();
                     }
                 }
 
@@ -866,6 +879,7 @@ void AppManager::case8(vector<Counter> luggageCounter, vector<Counter> securityC
             for (int i = 0; i < data.getNumOfSecurity(); i++) { // find nearest available counter
                 if (securityCounter[i].getBusyEnd() <= minAvailable) {
                     theOne = i;
+                    minAvailable=securityCounter[i].getBusyEnd();
                 }
             }
 
