@@ -157,11 +157,17 @@ void AppManager::case2(vector<Counter> luggageCounter, vector<Counter> securityC
             }
         }
         if (!isdone) { // if there is not available counter
-            int minAvailable = luggageCounter[0].getBusyEnd();
-            int theOne;
+            priority_queue<Counter, vector<Counter>, compara> sikem;
+
             for (int i = 0; i < data.getNumOfLuggage(); i++) { // find nearest available counter
-                if (luggageCounter[i].getBusyEnd() <= minAvailable) {
-                    theOne = i;
+                sikem.push(luggageCounter[i]);
+            }
+            int theOne;
+            Counter anan = sikem.top();
+            for (int i = 0; i < data.getNumOfLuggage(); i++) { // find nearest available counter
+                if(luggageCounter[i].getBusyEnd()==anan.getBusyEnd() && luggageCounter[i].getBusyStart()==anan.getBusyStart()){
+                    theOne=i;
+                    break;
                 }
             }
 
@@ -189,7 +195,7 @@ void AppManager::case2(vector<Counter> luggageCounter, vector<Counter> securityC
         }
     }
 
-    sort(securityQueue.begin(), securityQueue.begin()+data.getNumOfSecurity());
+    sort(securityQueue.begin(), securityQueue.end());
 
     while (!securityQueue.empty()) { // security counter operations, same with luggage counter
         Passenger pas = securityQueue.front();
@@ -206,13 +212,20 @@ void AppManager::case2(vector<Counter> luggageCounter, vector<Counter> securityC
             }
         }
         if (!isdone) { // if there is not available counter
-            int minAvailable = securityCounter[0].getBusyEnd();
-            int theOne;
+            priority_queue<Counter, vector<Counter>, compara> sikem;
+
             for (int i = 0; i < data.getNumOfSecurity(); i++) { // find nearest available counter
-                if (securityCounter[i].getBusyEnd() <= minAvailable) {
-                    theOne = i;
+                sikem.push(securityCounter[i]);
+            }
+            int theOne;
+            Counter anan = sikem.top();
+            for (int i = 0; i < data.getNumOfSecurity(); i++) { // find nearest available counter
+                if(securityCounter[i].getBusyEnd()==anan.getBusyEnd() && securityCounter[i].getBusyStart()==anan.getBusyStart()){
+                    theOne=i;
+                    break;
                 }
             }
+
 
             vector<Passenger> temp=securityQueue;
             while(!temp.empty()){
