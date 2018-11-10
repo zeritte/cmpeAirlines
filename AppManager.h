@@ -28,7 +28,7 @@ struct compara{
 
 class AppManager {
 public:
-    AppManager(InputParser givenData, char *argv);
+    AppManager(InputParser& givenData, char *argv);
     ~AppManager();
     void run(bool firstToFly, bool vip, bool online);
     void case1(vector<Counter> luggageCounter, vector<Counter> securityCounter, float sumOfTime, int numOfMissed, vector<Passenger> sorted);

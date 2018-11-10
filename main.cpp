@@ -4,7 +4,7 @@
 
 int main(int argc, char* argv[]) {
 
-    //auto start = std::chrono::high_resolution_clock::now();
+    auto start = std::chrono::high_resolution_clock::now();
 
 
     if (argc != 3) {
@@ -23,11 +23,11 @@ int main(int argc, char* argv[]) {
     app.run(true, true, true);
 
 
-    /*
+
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     cout << "time needed: " << duration.count() << " microseconds" <<endl;
-    */
+
 
     return 0;
 }

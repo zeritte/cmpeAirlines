@@ -1,6 +1,6 @@
 #include "AppManager.h"
 
-AppManager::AppManager(InputParser givenData, char *argv) {
+AppManager::AppManager(InputParser& givenData, char *argv) {
     data=givenData;
     pasList=data.getListOfPassenger();
     myfile.open(argv);
