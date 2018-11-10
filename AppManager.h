@@ -2,6 +2,7 @@
 #define PROJECT2_APPMANAGER_H
 
 #include <queue>
+#include <array>
 #include <algorithm>
 #include "InputParser.h"
 #include "Counter.h"
@@ -10,11 +11,7 @@ struct firstToFly{
     bool operator() (Passenger& lhs, Passenger& rhs)
     {
         if(lhs.getFlightTime()==rhs.getFlightTime()){
-            if(lhs.getUserType()=='V') {
-                return 1;
-            }else{
-                return 0;
-            }
+            return lhs.getArrivalTime()>rhs.getArrivalTime();
         }
         return lhs.getFlightTime() > rhs.getFlightTime();
     }

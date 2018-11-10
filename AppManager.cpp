@@ -2,7 +2,6 @@
 
 AppManager::AppManager(InputParser& givenData, char *argv) {
     data=givenData;
-    pasList=data.getListOfPassenger();
     myfile.open(argv);
 }
 
@@ -11,7 +10,7 @@ void AppManager::run(bool firstToFly, bool vip, bool online) {
     vector<Counter> securityCounter;
     vector<Passenger> sortedList;
 
-    list<Passenger> temp = pasList; // to keep original list safely
+    list<Passenger> temp = data.getListOfPassenger(); // to keep original list safely
 
     for (int i = 0; i < data.getNumOfPassenger(); i++) { // pushing passengers into sortedList
         sortedList.push_back(temp.front());
