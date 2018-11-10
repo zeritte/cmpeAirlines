@@ -8,6 +8,7 @@ Passenger::Passenger(int aT, int fT, int lT, int sT, char uT, char tT) {
     userType=uT;
     ticketType=tT;
     timeSpend=arrivalTime;
+    stage=0;
 }
 
 bool Passenger::operator==(const Passenger &rhs) {
@@ -63,4 +64,5 @@ Passenger::~Passenger() {
     userType=0;
     ticketType=0;
     timeSpend=0;
+    stage=0;
 }

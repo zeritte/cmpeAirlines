@@ -12,27 +12,30 @@ void AppManager::run(bool firstToFly, bool vip, bool online) {
     list<Passenger> temp = data.getListOfPassenger(); // to keep original list safely
 
     for (int i = 0; i < data.getNumOfPassenger(); i++) { // pushing passengers into sortedList
-        sortedList.push_back(temp.front());
+        temp.push_back(temp.front());
         temp.pop_front();
     }
 
-    sort(sortedList.begin(), sortedList.end()); // sorting passengers according to their arrival time
+    temp.sort(); // sorting passengers according to their arrival time
 
     if(!firstToFly) {
-        noFF(luggageCounter,securityCounter,sortedList, vip, online); // if there is no first-to-fly application
+        noFF(luggageCounter,securityCounter,temp, vip, online); // if there is no first-to-fly application
     }
     else{
-        FF(luggageCounter,securityCounter,sortedList, vip, online); // if there is f
+        FF(luggageCounter,securityCounter,temp, vip, online); // if there is f
     }
 }
 
-void AppManager::noFF(vector<Counter> luggageCounter, vector<Counter> securityCounter, vector<Passenger> sorted, bool vip, bool online) {
+void AppManager::noFF(vector<Counter> luggageCounter, vector<Counter> securityCounter, list<Passenger> sorted, bool vip, bool online) {
     vector<Passenger> securityQueue;
     vector<Passenger> finalList;
     int sumOfTime=0, numOfMissed=0;
 
     while (!sorted.empty()) { // where the luggage counter operation is executed
         Passenger pas = sorted.front(); // takes a passenger
+        if(pas.stage!=0){
+            continue;
+        }
         if(online && pas.getTicketType()=='N'){
             if(vip && pas.getUserType()=='V'){
                 finalList.push_back(pas);
@@ -125,7 +128,7 @@ void AppManager::noFF(vector<Counter> luggageCounter, vector<Counter> securityCo
     myfile << sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
 }
 
-void AppManager::FF(vector<Counter> luggageCounter, vector<Counter> securityCounter,vector<Passenger> sorted, bool vip, bool online) {
+void AppManager::FF(vector<Counter> luggageCounter, vector<Counter> securityCounter,list<Passenger> sorted, bool vip, bool online) {
     vector<Passenger> securityQueue;
     vector<Passenger> finalList;
     int sumOfTime=0, numOfMissed=0;
@@ -175,7 +178,7 @@ void AppManager::FF(vector<Counter> luggageCounter, vector<Counter> securityCoun
                     }
                 }
 
-                vector<Passenger> temp = sorted;
+                list<Passenger> temp = sorted;
                 while (!temp.empty()) {
                     Passenger tempPas = temp.front();
                     if (tempPas.getArrivalTime() <= luggageCounter[theOne].getBusyEnd()) {

@@ -17,6 +17,7 @@ public:
     void setTimeSpend(int time);
     bool operator==(const Passenger& rhs);
     bool operator<(const Passenger& rhs) const;
+    int stage;
 
 private:
     int arrivalTime;

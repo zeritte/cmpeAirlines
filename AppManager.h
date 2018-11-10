@@ -28,8 +28,8 @@ public:
     AppManager(InputParser& givenData, char *argv);
     ~AppManager();
     void run(bool firstToFly, bool vip, bool online);
-    void noFF(vector<Counter> luggageCounter, vector<Counter> securityCounter, vector<Passenger> sorted, bool vip, bool online);
-    void FF(vector<Counter> luggageCounter, vector<Counter> securityCounter, vector<Passenger> sorted, bool vip, bool online);
+    void noFF(vector<Counter> luggageCounter, vector<Counter> securityCounter, list<Passenger> sorted, bool vip, bool online);
+    void FF(vector<Counter> luggageCounter, vector<Counter> securityCounter, list<Passenger> sorted, bool vip, bool online);
 private:
     InputParser data;
     list<Passenger> pasList;
