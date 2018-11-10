@@ -26,38 +26,37 @@ void AppManager::run(bool firstToFly, bool vip, bool online) {
     for (int i = 0; i < data.getNumOfSecurity(); i++) { // creating security counters
         securityCounter.emplace_back(Counter());
     }
-    float sumOfTime = 0;
-    int numOfMissed = 0;
 
     if(!firstToFly && !vip && !online) { // case 1
-        case1(luggageCounter,securityCounter,sumOfTime,numOfMissed,sortedList);
+        case1(luggageCounter,securityCounter,sortedList);
     }
     else if(firstToFly && !vip && !online) {
-        case2(luggageCounter,securityCounter,sumOfTime,numOfMissed,sortedList);
+        case2(luggageCounter,securityCounter,sortedList);
     }
     else if(!firstToFly && vip && !online) {
-        case3(luggageCounter,securityCounter,sumOfTime,numOfMissed,sortedList);
+        case3(luggageCounter,securityCounter,sortedList);
     }
     else if(firstToFly && vip && !online) {
-        case4(luggageCounter,securityCounter,sumOfTime,numOfMissed,sortedList);
+        case4(luggageCounter,securityCounter,sortedList);
     }
     else if(!firstToFly && !vip && online) {
-        case5(luggageCounter,securityCounter,sumOfTime,numOfMissed,sortedList);
+        case5(luggageCounter,securityCounter,sortedList);
     }
     else if(firstToFly && !vip && online) {
-        case6(luggageCounter,securityCounter,sumOfTime,numOfMissed,sortedList);
+        case6(luggageCounter,securityCounter,sortedList);
     }
     else if(!firstToFly && vip && online) {
-        case7(luggageCounter,securityCounter,sumOfTime,numOfMissed,sortedList);
+        case7(luggageCounter,securityCounter,sortedList);
     }
     else if(firstToFly && vip && online) {
-        case8(luggageCounter,securityCounter,sumOfTime,numOfMissed,sortedList);
+        case8(luggageCounter,securityCounter,sortedList);
     }
 }
 
-void AppManager::case1(vector<Counter> luggageCounter, vector<Counter> securityCounter, float sumOfTime, int numOfMissed, vector<Passenger> sorted) {
+void AppManager::case1(vector<Counter> luggageCounter, vector<Counter> securityCounter, vector<Passenger> sorted) {
     vector<Passenger> securityQueue;
     vector<Passenger> finalList;
+    int sumOfTime=0, numOfMissed=0;
 
     while (!sorted.empty()) { // where the luggage counter operation is executed
         Passenger pas = sorted.front(); // takes a passenger
@@ -131,14 +130,15 @@ void AppManager::case1(vector<Counter> luggageCounter, vector<Counter> securityC
         }
         finalList.erase(finalList.begin());
     }
-    cout << "case 1: "<<sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    cout << "case 1: "<<sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
     // output operations
-    myfile << sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    myfile << sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
 }
 
-void AppManager::case2(vector<Counter> luggageCounter, vector<Counter> securityCounter, float sumOfTime, int numOfMissed,vector<Passenger> sorted) {
+void AppManager::case2(vector<Counter> luggageCounter, vector<Counter> securityCounter,vector<Passenger> sorted) {
     vector<Passenger> securityQueue;
     vector<Passenger> finalList;
+    int sumOfTime=0, numOfMissed=0;
     priority_queue<Passenger, vector<Passenger>, firstToFly> luggagePriorityQueue;
     priority_queue<Passenger, vector<Passenger>, firstToFly> securityPriorityQueue;
 
@@ -261,14 +261,15 @@ void AppManager::case2(vector<Counter> luggageCounter, vector<Counter> securityC
         finalList.erase(finalList.begin());
     }
 
-    cout << "case 2: "<<sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    cout << "case 2: "<<sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
     // output operations
-    myfile << sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    myfile << sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
 }
 
-void AppManager::case3(vector<Counter> luggageCounter, vector<Counter> securityCounter, float sumOfTime, int numOfMissed, vector<Passenger> sorted) {
+void AppManager::case3(vector<Counter> luggageCounter, vector<Counter> securityCounter, vector<Passenger> sorted) {
     vector<Passenger> securityQueue;
     vector<Passenger> finalList;
+    int sumOfTime=0, numOfMissed=0;
 
     while (!sorted.empty()) { // where the luggage counter operation is executed
         Passenger pas = sorted.front(); // takes a passenger
@@ -353,14 +354,15 @@ void AppManager::case3(vector<Counter> luggageCounter, vector<Counter> securityC
         }
         finalList.erase(finalList.begin());
     }
-    cout << "case 3: "<<sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    cout << "case 3: "<<sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
     // output operations
-    myfile << sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    myfile << sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
 }
 
-void AppManager::case4(vector<Counter> luggageCounter, vector<Counter> securityCounter, float sumOfTime, int numOfMissed, vector<Passenger> sorted) {
+void AppManager::case4(vector<Counter> luggageCounter, vector<Counter> securityCounter, vector<Passenger> sorted) {
     vector<Passenger> securityQueue;
     vector<Passenger> finalList;
+    int sumOfTime=0, numOfMissed=0;
     priority_queue<Passenger, vector<Passenger>, firstToFly> luggagePriorityQueue;
     priority_queue<Passenger, vector<Passenger>, firstToFly> securityPriorityQueue;
 
@@ -483,14 +485,15 @@ void AppManager::case4(vector<Counter> luggageCounter, vector<Counter> securityC
         finalList.erase(finalList.begin());
     }
 
-    cout << "case 4: "<<sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    cout << "case 4: "<<sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
     // output operations
-    myfile << sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    myfile << sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
 }
 
-void AppManager::case5(vector<Counter> luggageCounter, vector<Counter> securityCounter, float sumOfTime, int numOfMissed, vector<Passenger> sorted) {
+void AppManager::case5(vector<Counter> luggageCounter, vector<Counter> securityCounter, vector<Passenger> sorted) {
     vector<Passenger> securityQueue;
     vector<Passenger> finalList;
+    int sumOfTime=0, numOfMissed=0;
 
     while (!sorted.empty()) { // where the luggage counter operation is executed
         Passenger pas = sorted.front(); // takes a passenger
@@ -568,16 +571,17 @@ void AppManager::case5(vector<Counter> luggageCounter, vector<Counter> securityC
         }
         finalList.erase(finalList.begin());
     }
-    cout << "case 5: "<<sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    cout << "case 5: "<<sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
     // output operations
-    myfile << sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    myfile << sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
 }
 
-void AppManager::case6(vector<Counter> luggageCounter, vector<Counter> securityCounter, float sumOfTime, int numOfMissed, vector<Passenger> sorted) {
+void AppManager::case6(vector<Counter> luggageCounter, vector<Counter> securityCounter, vector<Passenger> sorted) {
     vector<Passenger> securityQueue;
     vector<Passenger> finalList;
     priority_queue<Passenger, vector<Passenger>, firstToFly> luggagePriorityQueue;
     priority_queue<Passenger, vector<Passenger>, firstToFly> securityPriorityQueue;
+    int sumOfTime=0, numOfMissed=0;
 
     while (!sorted.empty()) { // where the luggage counter operation is executed
         Passenger pas = sorted.front(); // takes a passenger
@@ -692,14 +696,15 @@ void AppManager::case6(vector<Counter> luggageCounter, vector<Counter> securityC
         finalList.erase(finalList.begin());
     }
 
-    cout << "case 6: "<<sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    cout << "case 6: "<<sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
     // output operations
-    myfile << sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    myfile << sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
 }
 
-void AppManager::case7(vector<Counter> luggageCounter, vector<Counter> securityCounter, float sumOfTime, int numOfMissed, vector<Passenger> sorted) {
+void AppManager::case7(vector<Counter> luggageCounter, vector<Counter> securityCounter, vector<Passenger> sorted) {
     vector<Passenger> securityQueue;
     vector<Passenger> finalList;
+    int sumOfTime=0, numOfMissed=0;
 
     while (!sorted.empty()) { // where the luggage counter operation is executed
         Passenger pas = sorted.front(); // takes a passenger
@@ -793,14 +798,15 @@ void AppManager::case7(vector<Counter> luggageCounter, vector<Counter> securityC
         }
         finalList.erase(finalList.begin());
     }
-    cout << "case 7: "<<sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    cout << "case 7: "<<sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
     // output operations
-    myfile << sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    myfile << sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
 }
 
-void AppManager::case8(vector<Counter> luggageCounter, vector<Counter> securityCounter, float sumOfTime, int numOfMissed, vector<Passenger> sorted) {
+void AppManager::case8(vector<Counter> luggageCounter, vector<Counter> securityCounter, vector<Passenger> sorted) {
     vector<Passenger> securityQueue;
     vector<Passenger> finalList;
+    int sumOfTime=0, numOfMissed=0;
     priority_queue<Passenger, vector<Passenger>, firstToFly> luggagePriorityQueue;
     priority_queue<Passenger, vector<Passenger>, firstToFly> securityPriorityQueue;
 
@@ -930,9 +936,9 @@ void AppManager::case8(vector<Counter> luggageCounter, vector<Counter> securityC
         finalList.erase(finalList.begin());
     }
 
-    cout << "case 8: "<<sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    cout << "case 8: "<<sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
     // output operations
-    myfile << sumOfTime/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
+    myfile << sumOfTime*(1.0)/data.getNumOfPassenger()<< " "<<numOfMissed<<endl;
 }
 
 AppManager::~AppManager() {
