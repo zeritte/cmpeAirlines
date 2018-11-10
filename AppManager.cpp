@@ -6,9 +6,8 @@ AppManager::AppManager(InputParser& givenData, char *argv) {
 }
 
 void AppManager::run(bool firstToFly, bool vip, bool online) {
-    vector<Counter> luggageCounter;
-    vector<Counter> securityCounter;
-    vector<Passenger> sortedList;
+    vector<Counter> luggageCounter(data.getNumOfLuggage());
+    vector<Counter> securityCounter(data.getNumOfSecurity());
 
     list<Passenger> temp = data.getListOfPassenger(); // to keep original list safely
 
@@ -19,18 +18,11 @@ void AppManager::run(bool firstToFly, bool vip, bool online) {
 
     sort(sortedList.begin(), sortedList.end()); // sorting passengers according to their arrival time
 
-    for (int i = 0; i < data.getNumOfLuggage(); i++) { // creating luggage counters
-        luggageCounter.emplace_back(Counter());
-    }
-    for (int i = 0; i < data.getNumOfSecurity(); i++) { // creating security counters
-        securityCounter.emplace_back(Counter());
-    }
-
     if(!firstToFly) {
-        noFF(luggageCounter,securityCounter,sortedList, vip, online);
+        noFF(luggageCounter,securityCounter,sortedList, vip, online); // if there is no first-to-fly application
     }
     else{
-        FF(luggageCounter,securityCounter,sortedList, vip, online);
+        FF(luggageCounter,securityCounter,sortedList, vip, online); // if there is f
     }
 }
 

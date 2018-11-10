@@ -25,7 +25,7 @@ public:
 private:
     int numOfPassenger;
     int numOfLuggage;
-    int numOfSecutiry;
+    int numOfSecurity;
     list<Passenger> passengerList;
 };
 

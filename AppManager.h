@@ -11,7 +11,7 @@ struct firstToFly{
     bool operator() (Passenger& lhs, Passenger& rhs)
     {
         if(lhs.getFlightTime()==rhs.getFlightTime()){
-            return lhs.getArrivalTime()>rhs.getArrivalTime();
+            return (lhs.getArrivalTime()>rhs.getArrivalTime());
         }
         return lhs.getFlightTime() > rhs.getFlightTime();
     }

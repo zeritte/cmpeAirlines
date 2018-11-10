@@ -10,7 +10,7 @@ InputParser::InputParser(char *argv) {
     splitter(line,data);
     numOfPassenger = stoi(data[0]); // string to int conversion
     numOfLuggage = stoi(data[1]);
-    numOfSecutiry = stoi(data[2]);
+    numOfSecurity = stoi(data[2]);
 
     for(int i=0; i<numOfPassenger; i++){
         data.clear(); // cleaning up old data
@@ -30,14 +30,14 @@ InputParser::InputParser(char *argv) {
 InputParser::InputParser() {
     numOfPassenger=0;
     numOfLuggage=0;
-    numOfSecutiry=0;
+    numOfSecurity=0;
     passengerList.clear();
 }
 
 InputParser::InputParser(const InputParser &in) {
     numOfPassenger=in.numOfPassenger;
     numOfLuggage=in.numOfLuggage;
-    numOfSecutiry=in.numOfSecutiry;
+    numOfSecurity=in.numOfSecurity;
     passengerList=in.passengerList;
 }
 
@@ -58,7 +58,7 @@ int InputParser::getNumOfLuggage() {
 }
 
 int InputParser::getNumOfSecurity() {
-    return numOfSecutiry;
+    return numOfSecurity;
 }
 
 list<Passenger> InputParser::getListOfPassenger(){

@@ -16,7 +16,11 @@ bool Passenger::operator==(const Passenger &rhs) {
 
 bool Passenger::operator<(const Passenger& rhs) const
 {
-    return (timeSpend < rhs.timeSpend);
+    if(timeSpend==rhs.timeSpend){
+        return (arrivalTime<rhs.arrivalTime);
+    }else{
+        return (timeSpend < rhs.timeSpend);
+    }
 }
 
 int Passenger::getTimeSpend(){
