@@ -6,6 +6,7 @@ using namespace std;
 class Passenger {
 public:
     Passenger(int aT, int fT, int lT, int sT, char uT, char tT);
+    Passenger();
     ~Passenger();
     int getArrivalTime();
     int getFlightTime();
@@ -13,12 +14,10 @@ public:
     int getSecurityTime();
     char getUserType();
     char getTicketType();
-    int getTimeSpend();
-    void setTimeSpend(int time);
-    bool operator==(const Passenger& rhs);
-    bool operator<(const Passenger& rhs) const;
+    int getTotalTime();
+    void setTotalTime(int time);
     int stage;
-
+    int where;
 private:
     int arrivalTime;
     int flightTime;
@@ -26,7 +25,7 @@ private:
     int securityTime;
     char userType;
     char ticketType;
-    int timeSpend;
+    int totalTime;
 };
 
 

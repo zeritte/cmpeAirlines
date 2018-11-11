@@ -11,15 +11,23 @@ struct firstToFly{
     bool operator() (Passenger& lhs, Passenger& rhs)
     {
         if(lhs.getFlightTime()==rhs.getFlightTime()){
-            return (lhs.getArrivalTime()>rhs.getArrivalTime());
+            return lhs.getArrivalTime()>rhs.getArrivalTime();
         }
         return lhs.getFlightTime() > rhs.getFlightTime();
     }
 };
-struct compara{
-    bool operator() (Counter& lhs, Counter& rhs)
+struct comparator{
+    bool operator() (Passenger& lhs, Passenger& rhs)
     {
-        return lhs.getBusyEnd() > rhs.getBusyEnd();
+        if(lhs.getTotalTime()!=rhs.getTotalTime()){
+            return lhs.getTotalTime()>rhs.getTotalTime();
+        }
+        else if(lhs.stage!=rhs.stage){
+            return lhs.stage<rhs.stage;
+        }
+        else{
+            return lhs.getArrivalTime()>rhs.getArrivalTime();
+        }
     }
 };
 
@@ -28,11 +36,10 @@ public:
     AppManager(InputParser& givenData, char *argv);
     ~AppManager();
     void run(bool firstToFly, bool vip, bool online);
-    void noFF(vector<Counter> luggageCounter, vector<Counter> securityCounter, list<Passenger> sorted, bool vip, bool online);
-    void FF(vector<Counter> luggageCounter, vector<Counter> securityCounter, list<Passenger> sorted, bool vip, bool online);
+    void maintenance(priority_queue<Passenger, vector<Passenger>, comparator>& pas_queue, bool firstToFly, bool vip, bool online);
 private:
     InputParser data;
-    list<Passenger> pasList;
+    priority_queue<Passenger, vector<Passenger>, comparator> pas_q;
     ofstream myfile;
 };
 

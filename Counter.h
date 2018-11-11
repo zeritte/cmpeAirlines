@@ -8,14 +8,12 @@ class Counter {
 public:
     Counter();
     ~Counter();
-    int getBusyStart();
-    void setBusyStart(int num);
-    int getBusyEnd();
-    void setBusyEnd(int num);
+    void makeBusy();
+    void notBusy();
+    bool isBusy();
 
 private:
-    int busyStart;
-    int busyEnd;
+    bool busy;
 };
 
 

@@ -7,29 +7,20 @@ Passenger::Passenger(int aT, int fT, int lT, int sT, char uT, char tT) {
     securityTime=sT;
     userType=uT;
     ticketType=tT;
-    timeSpend=arrivalTime;
+    totalTime=arrivalTime;
     stage=0;
 }
 
-bool Passenger::operator==(const Passenger &rhs) {
-    return(arrivalTime==rhs.arrivalTime && flightTime==rhs.flightTime && luggageTime==rhs.luggageTime && securityTime==rhs.securityTime && userType==rhs.userType && ticketType==rhs.ticketType);
+Passenger::Passenger(){
+
 }
 
-bool Passenger::operator<(const Passenger& rhs) const
-{
-    if(timeSpend==rhs.timeSpend){
-        return (arrivalTime<rhs.arrivalTime);
-    }else{
-        return (timeSpend < rhs.timeSpend);
-    }
+int Passenger::getTotalTime(){
+    return totalTime;
 }
 
-int Passenger::getTimeSpend(){
-    return timeSpend;
-}
-
-void Passenger::setTimeSpend(int time){
-    timeSpend+=time;
+void Passenger::setTotalTime(int time){
+    totalTime=time;
 }
 
 int Passenger::getArrivalTime() {
@@ -63,6 +54,6 @@ Passenger::~Passenger() {
     securityTime=0;
     userType=0;
     ticketType=0;
-    timeSpend=0;
+    totalTime=0;
     stage=0;
 }

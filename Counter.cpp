@@ -1,24 +1,16 @@
 #include "Counter.h"
 
 Counter::Counter() {
-    busyStart=0;
-    busyEnd=0;
+    busy=false;
 }
-
-int Counter::getBusyStart() {
-    return busyStart;
+void Counter::makeBusy() {
+    busy=true;
 }
-
-void Counter::setBusyStart(int num) {
-    busyStart=num;
+void Counter::notBusy() {
+    busy=false;
 }
-
-int Counter::getBusyEnd() {
-    return busyEnd;
-}
-
-void Counter::setBusyEnd(int num) {
-    busyEnd=num;
+bool Counter::isBusy() {
+    return busy;
 }
 
 Counter::~Counter() {}
