@@ -16,8 +16,8 @@ public:
     char getTicketType();
     int getTotalTime();
     void setTotalTime(int time);
-    int stage;
-    int where;
+    int step; // passenger's step
+    int where; // passenger's position
 private:
     int arrivalTime;
     int flightTime;

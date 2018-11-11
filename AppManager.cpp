@@ -4,7 +4,7 @@ AppManager::AppManager(InputParser& givenData, char *argv) {
     data=givenData;
     myfile.open(argv);
     list<Passenger> pL = data.getListOfPassenger();
-    for(int i=0; i<data.getNumOfPassenger(); i++){ // pushing passengers into 8 different queue to process their data
+    for(int i=0; i<data.getNumOfPassenger(); i++){ // pushes passengers into base priority queue
         Passenger pas = pL.front();
         pas_q.push(pas);
         pL.pop_front();
@@ -12,48 +12,54 @@ AppManager::AppManager(InputParser& givenData, char *argv) {
 }
 
 void AppManager::run(bool firstToFly, bool vip, bool online) {
-    maintenance(pas_q, firstToFly, vip, online);
+    maintenance(pas_q, firstToFly, vip, online); // calls helper function
 }
 
 void AppManager::maintenance(priority_queue<Passenger, vector<Passenger>, comparator>& pq, bool firstFly, bool vip, bool online) {
-    priority_queue<Passenger, vector<Passenger>, comparator> pas_queue=pq;
+    priority_queue<Passenger, vector<Passenger>, comparator> pas_queue=pq; // keeps original queue safely
     int sum_of_time=0, num_of_missed=0;
-    priority_queue<Passenger, vector<Passenger>, firstToFly> luggagePriorityQueue;
-    priority_queue<Passenger, vector<Passenger>, firstToFly> securityPriorityQueue;
-    queue<Passenger> luggageQueue;
-    queue<Passenger> securityQueue;
-    queue<Passenger> finalOne;
-    Counter lC[data.getNumOfLuggage()];
-    Counter sC[data.getNumOfSecurity()];
+    priority_queue<Passenger, vector<Passenger>, firstToFly> luggagePriorityQueue; // created for first to fly first serve cases
+    priority_queue<Passenger, vector<Passenger>, firstToFly> securityPriorityQueue; // created for first to fly first serve cases
+    queue<Passenger> luggageQueue; // created for first come first serve cases
+    queue<Passenger> securityQueue; // created for first come first serve cases
+    queue<Passenger> finalOne; // final queue for calculations
+    Counter lC[data.getNumOfLuggage()]; // creates luggage counters
+    Counter sC[data.getNumOfSecurity()]; // creates security counters
 
     int time=0;
 
-    while(!pas_queue.empty()){
+    /* 
+    if passenger just came, step=0. if on the luggage counter, step=1. if on the security counter, step=2. 
+    necessary arrangements are made such as online ticketing case or vip case.
+    */
+
+    while(!pas_queue.empty()){ // while there is passenger in list
         Passenger pas = pas_queue.top();
         pas_queue.pop();
         time=pas.getTotalTime();
-        if(pas.stage==0){
-            if(online && pas.getTicketType() == 'N'){
-                pas.stage++;
+        if(pas.step==0){
+
+            if(online && pas.getTicketType() == 'N'){ // if online ticketing is implemented
+                pas.step++;
                 pas_queue.push(pas);
             }
             else{
                 bool free_counter=false;
-                int x=0;
-                while(x < sizeof(lC)){
-                    if(!lC[x].isBusy()){
-                        lC[x].makeBusy();
-                        pas.where=x;
+                int i=0;
+                while(i < sizeof(lC)){ // searchs for available counter
+                    if(!lC[i].isBusy()){ // if found
+                        lC[i].makeBusy();
+                        pas.where=i;
                         pas.setTotalTime(time+pas.getLuggageTime());
-                        pas.stage++,
+                        pas.step++,
                         pas_queue.push(pas);
                         free_counter= true;
                         break;
                     }
-                    x++;
+                    i++;
                 }
-                if(!free_counter){
-                    if(firstFly){
+                if(!free_counter){ // if not found push into queue
+                    if(firstFly){ // if first to fly is implemented
                         luggagePriorityQueue.push(pas);
                     }else{
                         luggageQueue.push(pas);
@@ -63,8 +69,9 @@ void AppManager::maintenance(priority_queue<Passenger, vector<Passenger>, compar
             }
         }
 
-        else if(pas.stage==1){
-            if((pas.getTicketType()=='L') || (!online && pas.getTicketType()=='N')){
+        else if(pas.step==1){
+
+            if((pas.getTicketType()=='L') || (!online && pas.getTicketType()=='N')){ // if online ticketing is implemented
                 lC[pas.where].notBusy();
                 if(!luggageQueue.empty() || !luggagePriorityQueue.empty()){
                     Passenger temp;
@@ -76,31 +83,31 @@ void AppManager::maintenance(priority_queue<Passenger, vector<Passenger>, compar
                         luggageQueue.pop();
                     }
                     lC[pas.where].makeBusy();
-                    temp.stage++;
+                    temp.step++;
                     temp.where=pas.where;
                     temp.setTotalTime(time+temp.getLuggageTime());
                     pas_queue.push(temp);
                 }
             }
 
-            if(vip && pas.getUserType()=='V'){
-                pas.stage++;
+            if(vip && pas.getUserType()=='V'){ // if vip is implemented
+                pas.step++;
                 pas_queue.push(pas);
             }
             else{
                 bool free_counter=false;
-                int x=0;
-                while(x < sizeof(sC)){
-                    if(!sC[x].isBusy()){
-                        sC[x].makeBusy();
-                        pas.where=x;
+                int i=0;
+                while(i < sizeof(sC)){
+                    if(!sC[i].isBusy()){
+                        sC[i].makeBusy();
+                        pas.where=i;
                         pas.setTotalTime(time+pas.getSecurityTime());
-                        pas.stage++,
+                        pas.step++,
                         pas_queue.push(pas);
                         free_counter= true;
                         break;
                     }
-                    x++;
+                    i++;
                 }
                 if(!free_counter){
                     if(firstFly){
@@ -112,7 +119,8 @@ void AppManager::maintenance(priority_queue<Passenger, vector<Passenger>, compar
             }
         }
 
-        else if(pas.stage==2){
+        else if(pas.step==2){
+
             if(vip && pas.getUserType()=='V'){
                 finalOne.push(pas);
             }
@@ -130,7 +138,7 @@ void AppManager::maintenance(priority_queue<Passenger, vector<Passenger>, compar
                             securityQueue.pop();
                         }
                         sC[pas.where].makeBusy();
-                        temp.stage++;
+                        temp.step++;
                         temp.where=pas.where;
                         temp.setTotalTime(time+temp.getSecurityTime());
                         pas_queue.push(temp);
@@ -140,8 +148,8 @@ void AppManager::maintenance(priority_queue<Passenger, vector<Passenger>, compar
         }
     }
 
-
-    while(!finalOne.empty()){
+    
+    while(!finalOne.empty()){ // where calculations are made
         Passenger temp = finalOne.front();
         if(temp.getTotalTime()>temp.getFlightTime()){
             num_of_missed++;
@@ -150,8 +158,8 @@ void AppManager::maintenance(priority_queue<Passenger, vector<Passenger>, compar
         finalOne.pop();
     }
 
-    cout << "output: "<<sum_of_time*(1.0)/data.getNumOfPassenger()<< " "<<num_of_missed<<endl;
     // output operations
+    cout << "output: "<<sum_of_time*(1.0)/data.getNumOfPassenger()<< " "<<num_of_missed<<endl;
     myfile << sum_of_time*(1.0)/data.getNumOfPassenger()<< " "<<num_of_missed<<endl;
 }
 

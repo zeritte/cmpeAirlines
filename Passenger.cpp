@@ -8,12 +8,10 @@ Passenger::Passenger(int aT, int fT, int lT, int sT, char uT, char tT) {
     userType=uT;
     ticketType=tT;
     totalTime=arrivalTime;
-    stage=0;
+    step=0;
 }
 
-Passenger::Passenger(){
-
-}
+Passenger::Passenger(){}
 
 int Passenger::getTotalTime(){
     return totalTime;
@@ -55,5 +53,5 @@ Passenger::~Passenger() {
     userType=0;
     ticketType=0;
     totalTime=0;
-    stage=0;
+    step=0;
 }
